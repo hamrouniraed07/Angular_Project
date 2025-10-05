@@ -1,0 +1,95 @@
+<!-- Navbar -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <img src="assets/images/logo1.png" alt="Football Manager Logo" class="logo">
+        <span class="brand-name">Football Manager</span>
+      </div>
+      <div class="navbar-menu">
+        <ul class="nav-links">
+          <li><a href="#" class="active">Accueil</a></li>
+          <li><a href="/formAJout">Ajouter une Equipe</a></li>
+        </ul>
+      </div>
+      <div class="navbar-search">
+        <input type="text" placeholder="Rechercher une équipe..." class="search-input" [(ngModel)]="searchQuery" (input)="searchTeams()">
+        <button class="search-btn"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Explorez les Meilleures Équipes de Football</h1>
+      <p>Découvrez les statistiques, les joueurs et l'histoire des équipes les plus célèbres du monde</p>
+    </div>
+  </section>
+  
+  <!-- Teams Grid -->
+  <section class="teams-section">
+    <div class="container">
+      <h2 class="section-title">Équipes Populaires</h2>
+  
+      <div class="teams-grid">
+        <!-- Boucle sur les équipes filtrées -->
+        <div *ngFor="let team of filteredTeams" class="team-card" [routerLink]="['/team', team._id]">
+
+          <div class="team-logo">
+            <img [src]="team.logo" [alt]="team.name">
+          </div>
+          <div class="team-info">
+            <h3>{{ team.name }}</h3>
+            <p>{{ team.country }}</p>
+            <span class="trophies-badge"> 🏆 {{ team.trophies?.[0]?.name }} </span>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <!-- Logo et Texte -->
+        <div class="footer-logo">
+          <img src="assets/images/logo1.png" alt="Football Manager Logo" class="logo">
+          <span>Football Manager</span>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">Équipes</a></li>
+            <li><a href="#">Joueurs</a></li>
+            <li><a href="#">Classements</a></li>
+            <li><a href="#">À propos</a></li>
+          </ul>
+        </div>
+        
+        <!-- Réseaux sociaux -->
+        <div class="footer-social">
+          <h4>Suivez-nous</h4>
+          <ul>
+            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Copyright et Contact -->
+      <div class="footer-bottom">
+        <p>&copy; 2025 Football Manager. Tous droits réservés.</p>
+        <p>Contactez-nous: <a href="mailto:contact@footballmanager.com">contact.footballmanager.com</a></p>
+      </div>
+    </div>
+  </footer>
+  
+  

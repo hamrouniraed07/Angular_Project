@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<div class="team-detail-container">
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-logo">
+        <img src="assets/images/logo1.png" alt="Football Manager Logo">
+        <span>Football Teams Manager</span>
+      </div>
+      <div class="navbar-links">
+        <a href="/accueil">Accueil</a>
+      </div>
+      
+    </div>
+  </nav>
+
+
+  <!-- Team Card -->
+  <div *ngIf="team" class="team-card">
+    <div class="team-header">
+      <img [src]="team?.logo" alt="Logo de l'équipe" class="team-logo" />
+      <div class="team-basic-info">
+        <h2>{{ team?.name }}</h2>
+        <p class="country">{{ team?.country }}</p>
+      </div>
+ <div style="margin-left: 400px">
+  <button class="delete-button" type="button" (click)="deleteTeam()">
+    🗑️ Supprimer l'équipe
+  </button>
+  <button class="update-button" type="button" (click)="goToUpdateTeam()">
+    ✏️ Mettre à jour l'équipe
+  </button>
+  
+</div>
+  
+
+    </div>
+
+
+
+    <div class="team-info-grid">
+      <div class="info-item">
+        <h4>🏆 League</h4>
+        <p>{{ team?.league }}</p>
+      </div>
+      <div class="info-item">
+        <h4>🏟️ Stadium</h4>
+        <p>{{ team?.stadium }}</p>
+      </div>
+      <div class="info-item">
+        <h4>📅 Founded</h4>
+        <p>{{ team?.foundedYear }}</p>
+      </div>
+      <div class="info-item">
+        <h4>👥 Capacity</h4>
+        <p>{{ team?.stadiumCapacity }}</p>
+      </div>
+    </div>
+
+    <div class="description-section">
+      <h3>📝 Description</h3>
+      <p>{{ team?.description || 'No description available' }}</p>
+    </div>
+
+    <div class="team-section">
+      <h3>👕 Players</h3>
+      
+      <ul>
+        <li *ngFor="let player of team?.players">
+              <img [src]="player?.image" class="team-logo" />
+          <span class="player-name">{{ player.firstName }} {{ player.lastName }} </span> 
+         <br> 
+         <br>
+          <span class="player-info"> Position : {{ player.position }}
+            <br> Numéro : ({{ player.number }})</span> 
+        </li>
+      </ul>
+    </div>
+
+    <div class="team-section">
+      <h3>🏅 Trophies</h3>
+      <ul>
+        <li *ngFor="let trophy of team?.trophies">
+          {{ trophy.name }} - {{ trophy.year }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="team-section">
+      <h3>👨‍🏫 Coach</h3>
+      <p>{{ team?.coach?.firstName }} {{ team?.coach?.lastName }}</p>
+    </div>
+  </div>
+
+  
+</div>

@@ -1,0 +1,262 @@
+/* Global */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #e0f7fa, #e0f2f1);
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #0077b6;
+  padding: 1rem 2rem;
+  color: white;
+}
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+.navbar-logo img {
+  width: 45px;
+  margin-right: 12px;
+}
+.navbar-links a {
+  color: white;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+}
+.navbar-links a.active::after {
+  content: "";
+  display: block;
+  margin: auto;
+  width: 50%;
+  padding-top: 2px;
+  border-bottom: 2px solid #00b4d8;
+}
+.navbar-search input {
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+}
+.navbar-search button {
+  background-color: #00b4d8;
+  border: none;
+  padding: 6px 10px;
+  margin-left: 5px;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Team Card */
+.team-card {
+  max-width: 1100px;
+  margin: 2rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 18px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+}
+.team-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.team-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 50px;
+  border: 3px solid #070707;
+}
+.team-basic-info h2 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #023e8a;
+}
+.country {
+  color: #0096c7;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+/* Team Info Grid */
+.team-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.info-item {
+  background-color: #f1fafa;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+.info-item h4 {
+  margin-bottom: 5px;
+  color: #0077b6;
+}
+.info-item p {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Description */
+.description-section {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-left: 5px solid #00b4d8;
+  margin-bottom: 2rem;
+}
+.description-section h3 {
+  margin-bottom: 0.5rem;
+}
+
+/* Sections */
+.team-section {
+  margin-bottom: 2rem;
+}
+.team-section h3 {
+  color: #0077b6;
+  margin-bottom: 1rem;
+}
+.team-section ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+.team-section li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+.player-name {
+  font-weight: 600;
+}
+.player-info {
+  color: #555;
+}
+
+/* Recent Matches */
+.recent-matches-section {
+  max-width: 1100px;
+  margin: 3rem auto;
+}
+.section-title {
+  font-size: 2rem;
+  color: #023e8a;
+  margin-bottom: 1.5rem;
+}
+.matches-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.match-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
+}
+.match-card:hover {
+  transform: translateY(-5px);
+}
+.match-date {
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+.match-teams {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.team.home {
+  display: flex;
+  align-items: center;
+}
+.team.home img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+.match-score {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #00b4d8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .team-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .team-logo {
+    margin-bottom: 10px;
+  }
+  .team-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.delete-button {
+  background-color: #e74c3c; /* rouge vif */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 150; /* PAS de marge gauche */
+  margin-top: 20px; /* petite marge au-dessus pour respirer */
+}
+
+
+.delete-button:hover {
+  background-color: #c0392b; /* rouge un peu plus foncé au survol */
+  transform: scale(1.05);
+}
+
+.delete-button:active {
+  transform: scale(0.98);
+}
+.update-button {
+  background-color: #f39c12; /* orange vif */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  
+  margin-top: 20px;
+}
+
+.update-button:hover {
+  background-color: #d68910; /* orange plus foncé au survol */
+  transform: scale(1.05);
+}
+
+.update-button:active {
+  transform: scale(0.98);
+}
